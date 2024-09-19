@@ -26,12 +26,28 @@ export default function HomeScreen() {
           By 21522436 - Nguyễn Thị Hồng Nhung
         </Text>
       </ThemedView>
-      <Link href="/bt1">Bài tập 1</Link>
+      <Link href="/bt1" style={styles.buttonLink}>Bài tập 1</Link>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  buttonLink: {
+    padding: 6,
+    borderRadius: 8,
+    backgroundColor: "#fff",
+    color: "#000",
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+    borderWidth: 1, 
+    borderColor: 'black', 
+  },
   titleContainer: {
     flexDirection: "column",
     // alignItems: 'start',

@@ -102,7 +102,7 @@ export default function Example() {
         >
           <Text style={styles.formFooter}>
             Already have an account?{" "}
-            <Link href="/login" style={{ textDecorationLine: "underline" }}>
+            <Link href="/bt1/login" style={{ textDecorationLine: "underline" }}>
               Sign in
             </Link>
           </Text>

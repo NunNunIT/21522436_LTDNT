@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Pressable } from "react-native";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -28,46 +29,38 @@ const App = () => {
     <View style={styles.container}>
       <Text style={styles.result}>{input}</Text>
       <View style={styles.buttonContainer}>
-        {[
-          "AC",
-          "CE",
-          "%",
-          "/",
-          "7",
-          "8",
-          "9",
-          "*",
-          "4",
-          "5",
-          "6",
-          "-",
-          "1",
-          "2",
-          "3",
-          "+",
-          "0",
-          ".",
-          "=",
-        ].map((item) => (
-          <TouchableOpacity
-            key={item}
-            style={{
-              ...styles.button,
-              ...(item === "=" ? { flex: 2 } : {}),
-            }}
-            onPress={() =>
-              item === "AC"
-                ? clearInput()
-                : item === "CE"
-                ? removeLastChar()
-                : item === "="
-                ? calculateResult()
-                : handlePress(item)
-            }
-          >
-            <Text style={styles.buttonText}>{item}</Text>
-          </TouchableOpacity>
-        ))}
+        {["AC", "CE", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", ",", "=",]
+          .map((item) => (
+            // <TouchableHighlight
+            <TouchableOpacity
+              key={item}
+              style={{
+                ...styles.button, ...(
+                  ["="].includes(item)
+                    ? { backgroundColor: "#0d9488" }
+                    : ["AC", "CE", "%", "/",].includes(item)
+                      ? { backgroundColor: "#f0fdfa" }
+                      : {})
+              }}
+              // underlayColor={styles.buttonHover.backgroundColor}
+              activeOpacity={0.9}
+              onPress={() =>
+                item === "AC"
+                  ? clearInput()
+                  : item === "CE"
+                    ? removeLastChar()
+                    : item === "="
+                      ? calculateResult()
+                      : handlePress(item)}
+            >
+              <Text style={{
+                ...styles.buttonText,
+                ...(["AC", "CE", "%", "/", "*", "-", "+", "=",].includes(item)
+                  ? { color: "#134e4a" }
+                  : {})
+              }}>{item}</Text>
+            </TouchableOpacity>
+          ))}
       </View>
     </View>
   );
@@ -79,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#27272a",
   },
   result: {
     fontSize: 40,
@@ -98,17 +91,22 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   button: {
+    borderRadius: 100,
     width: "22%",
     height: 70,
     margin: 5,
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 10,
+  },
+  buttonHover: {
+    backgroundColor: "#f0fdfa",
+    color: "#f0fdfa",
   },
   buttonText: {
     fontSize: 30,
-    color: "#000",
+    color: "#134e4a",
+    // backgroundColor: "#fff",
     fontWeight: "bold",
   },
 });

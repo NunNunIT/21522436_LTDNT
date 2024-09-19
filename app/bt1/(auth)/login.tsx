@@ -9,8 +9,8 @@ import {
   TouchableOpacity,
   TextInput,
   Button,
-  CheckBox,
 } from "react-native";
+// import { CheckBox } from '@react-native-community/checkbox';
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 export default function Example() {
   const [form, setForm] = useState({
@@ -70,10 +70,10 @@ export default function Example() {
             </TouchableOpacity>
           </View>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <CheckBox
+            {/* <CheckBox
               value={rememberMe}
               onValueChange={(newValue) => setRememberMe(newValue)}
-            /> 
+            />  */}
             <Text style={styles.formCheckBox}>{' '} Renember me?</Text>
           </View>
         </View>
@@ -87,7 +87,7 @@ export default function Example() {
           <Text style={styles.formFooter}>
             Don't have an account?{" "}
             <Link
-              href={"/register"}
+              href={"/bt1/register"}
               style={{ textDecorationLine: "underline" }}
             >
               Sign up

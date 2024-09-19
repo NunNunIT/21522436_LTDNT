@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, Text } from "react-native";
+import { Image, StyleSheet, Platform, Text, View } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
@@ -26,14 +26,33 @@ export default function HomeScreen() {
           By 21522436 - Nguyễn Thị Hồng Nhung
         </Text>
       </ThemedView>
-      <Link href="/login">Login</Link>
-      <Link href="/register">Register</Link>
-      <Link href="/calc">Calc</Link>
+
+      <Link href="/bt1/login" style={styles.buttonLink}>
+        Trang đăng nhập
+      </Link>
+      <Link href="/bt1/register" style={styles.buttonLink}>Trang đăng ký</Link>
+      <Link href="/bt1/calc" style={styles.buttonLink}>Máy tính Calculator</Link>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  buttonLink: {
+    padding: 6,
+    borderRadius: 8,
+    backgroundColor: "#fff",
+    color: "#000",
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+    borderWidth: 1, 
+    borderColor: 'black', 
+  },
   titleContainer: {
     flexDirection: "column",
     // alignItems: 'start',
